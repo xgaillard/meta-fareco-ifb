@@ -1,0 +1,19 @@
+[Unit]
+Description=cpurdt daemon
+#StartLimitIntervalSec=10min
+#StartLimitBurst=2
+#StartLimitAction=reboot
+After=cpurdt-start.target
+
+[Service]
+WorkingDirectory=/home/root/data
+ExecStartPre=sh /home/root/startappcpu.sh
+ExecStart=/home/root/current/usr/sbin/cpurdt --nocfid
+#ExecStartPost=/usr/bin/setled status on
+#ExecStopPost=/usr/bin/setled status off
+#WatchdogSec=120s
+#Restart=on-failure
+#RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

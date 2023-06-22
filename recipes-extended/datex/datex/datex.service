@@ -1,0 +1,14 @@
+[Unit]
+Description=Interface Datex v2
+After=mw-server.service
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/fareco/datex
+ExecStart=/usr/bin/java -jar /usr/bin/interfaceDatex.jar
+#Restart=Always
+#RestartSec=10
+SyslogIdentifier=interfaceDatex
+
+[Install]
+WantedBy=multi-user.target

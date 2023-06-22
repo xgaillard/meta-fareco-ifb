@@ -1,0 +1,14 @@
+[Unit]
+Description=cpurdt web daemon
+#StartLimitIntervalSec=0
+After=cpurdt-start.target
+
+[Service]
+ExecStart=/home/root/current/usr/sbin/cpurdt-web
+WorkingDirectory=/home/root/data
+#WatchdogSec=120s
+#Restart=on-failure
+#RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

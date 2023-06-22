@@ -1,0 +1,14 @@
+[Unit]
+Description=Interface Rsmp
+After=cpurdt.service
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/fareco/rsmp
+ExecStart=/usr/bin/java -jar /usr/bin/RsmpEquipment.jar
+#Restart=Always
+#RestartSec=10
+SyslogIdentifier=rsmp
+
+[Install]
+WantedBy=multi-user.target
