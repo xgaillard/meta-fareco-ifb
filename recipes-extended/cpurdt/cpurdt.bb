@@ -7,7 +7,11 @@ PREMIRRORS = ""
 MIRRORS = ""
 
 SRC_URI = "gitsm://git@docinfo:/data/Vcs/GitRoot/Produits/Rdt/appRdt.git;branch=newWeb;protocol=ssh"
-SRCREV = "r20230620_cpurdtparking_01020100_02000001"
+#SRCREV = "r20230911_cpurdtparking_01030001_02000300"
+#SRCREV = "r20231005_cpurdtparking_01030001_02000400"
+#SRCREV = "r20230724_cpurdtparking_01020100_02000101"
+#SRCREV = "r20231610_cpurdtparking_01030002_02000400"
+SRCREV = "r20231020_cpurdtparking_01030003_02000400"
 
 #SRC_URI = " \
 #	git:///home/xavier/CARTES_SIAT/RBOX/workspaceNewWeb;branch=newWeb;protocol=file \
@@ -21,7 +25,7 @@ SRCREV = "r20230620_cpurdtparking_01020100_02000001"
 #	git:///home/xavier/CARTES_SIAT/RBOX/workspaceNewWeb/klog;protocol=file;destsuffix=git/klog \
 #	git:///home/xavier/CARTES_SIAT/RBOX/workspaceNewWeb/kxml;protocol=file;destsuffix=git/kxml \
 #"
-#
+
 #SRCREV_default = "${AUTOREV}"
 
 #	file://cpurdt.service \
@@ -37,8 +41,8 @@ SRC_URI += " \
 
 PACKAGES += "${PN}-webserver"
 
-DEPENDS += " libyocto"
-RDEPENDS_${PN} += " libyocto-tools"
+DEPENDS += "libaxeapi libaxeapi libyocto"
+RDEPENDS_${PN} += "libaxeapi libyocto-tools"
 
 DEPENDS += " ulfius rhonabwy"
 RDEPENDS_${PN}-webserver += " lighttpd lighttpd-module-openssl lighttpd-module-proxy"
@@ -56,13 +60,14 @@ SYSTEMD_AUTO_ENABLE_${PN}-webserver = "enable"
 
 EXTRA_OEMAKE += "\
 CIBLE=ifb \
+VARIANTE=PARKING \
 DEP_DISABLED=1 \
 NO_EXTRA_WARNING=1 \
 "
 
 APP_BUILD_DIR = "${WORKDIR}/git"
 PARALLEL_MAKE = ""
-TARGET_CC_ARCH += "${LDFLAGS}"
+TARGET_CC_ARCH += "${LDFLAGS} -lEApi"
 
 do_compile() {
     cd ${APP_BUILD_DIR}/cpuRdt
@@ -76,7 +81,7 @@ do_install() {
     install -d ${D}${LOCAL_ROOT_DIR}/current/usr/sbin
 
     # cpurdt
-    install -m 0755 ${APP_BUILD_DIR}/cpuRdt/build/ifb/bin/cpuRdtMain ${D}${LOCAL_ROOT_DIR}/current/usr/sbin/${PN}
+    install -m 0755 ${APP_BUILD_DIR}/cpuRdt/build/PARKING/ifb/bin/cpuRdtMain ${D}${LOCAL_ROOT_DIR}/current/usr/sbin/${PN}
 
     install -d ${D}${LOCAL_ROOT_DIR}/data
     install -m 0644 ${WORKDIR}/${PN}.service ${D}${systemd_system_unitdir}/
@@ -85,7 +90,7 @@ do_install() {
     install -m 0777 ${WORKDIR}/startappcpu.sh ${D}${LOCAL_ROOT_DIR}/
 
     # cpurdt-web
-    install -m 0755 ${APP_BUILD_DIR}/cpuRdt/build/ifb/bin/c4busybox ${D}${LOCAL_ROOT_DIR}/current/usr/sbin/${PN}-web
+    install -m 0755 ${APP_BUILD_DIR}/cpuRdt/build/PARKING/ifb/bin/c4busybox ${D}${LOCAL_ROOT_DIR}/current/usr/sbin/${PN}-web
 
     install -m 0644 ${WORKDIR}/${PN}-web.service ${D}${systemd_system_unitdir}/
     install -m 0640 ${APP_BUILD_DIR}/cpuRdtWebBack/bdd.txt ${D}${LOCAL_ROOT_DIR}/data/
