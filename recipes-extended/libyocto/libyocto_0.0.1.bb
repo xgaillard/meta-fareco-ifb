@@ -1,11 +1,18 @@
 DESCRIPTION = ""
 LICENSE = "CLOSED"
 
-PREMIRRORS = ""
-MIRRORS = ""
+#PREMIRRORS = "\
+#	git://git@docinfo/data/Vcs/GitRoot/Produits/YOCTO/libyocto.git;protocol=ssh \
+#	file:///home/xavier/axiomtek-hardknott/work/libyocto.git/ \n \
+#"
 
-SRC_URI = "git:///home/xavier/axiomtek-hardknott/work/libyocto/;protocol=file"
-#SRC_URI = "git://git@docinfo/data/Vcs/GitRoot/Produits/YOCTO/libyocto.git;protocol=ssh"
+MIRRORS += "\
+	git://git@docinfo/data/Vcs/GitRoot/Produits/YOCTO/libyocto.git;protocol=ssh \
+	file:///home/xavier/axiomtek-hardknott/work/libyocto.git/ \n \
+"
+
+#SRC_URI = "git:///home/xavier/axiomtek-hardknott/work/libyocto.git"
+SRC_URI = "git://git@docinfo/data/Vcs/GitRoot/Produits/YOCTO/libyocto.git;protocol=ssh"
 SRCREV = "${AUTOREV}"
 
 
