@@ -12,9 +12,10 @@ MIRRORS += "\
 "
 
 #SRC_URI = "git:///home/xavier/axiomtek-hardknott/work/libyocto.git"
-SRC_URI = "git://git@docinfo/data/Vcs/GitRoot/Produits/YOCTO/libyocto.git;protocol=ssh"
-SRCREV = "${AUTOREV}"
-
+#SRC_URI = "git://git@docinfo/data/Vcs/GitRoot/Produits/YOCTO/libyocto.git;protocol=ssh"
+#SRCREV = "${AUTOREV}"
+SRCREV = "0c56f2880de9b48a25ce61dc5e39356fb6857005"
+SRC_URI = "git://git@git.fareco.cloud.nxo.fr/be-meyreuil/systems/YOCTO/libyocto.git;protocol=ssh"
 
 #SRCREV = "497767bc2a52eb0a0d46caa12c3d9d7ded5f9113"
 #SRC_URI = "git://git@github.com:/xgaillard/libyocto.git;protocol=ssh"
