@@ -7,14 +7,15 @@ PREMIRRORS = ""
 MIRRORS = ""
 
 #SRC_URI = "gitsm://git@docinfo:/data/Vcs/GitRoot/Produits/Rdt/appRdt.git;branch=newWeb;protocol=ssh"
-SRC_URI = "gitsm://git@git.fareco.cloud.nxo.fr:/be-meyreuil/produits/rdt/app.git;branch=newWeb;protocol=ssh"
+SRC_URI = "gitsm://git@git.fareco.cloud.nxo.fr/be-meyreuil/produits/rdt/app.git;branch=newWeb;protocol=ssh"
 #SRCREV = "r20230911_cpurdtparking_01030001_02000300"
 #SRCREV = "r20231005_cpurdtparking_01030001_02000400"
 #SRCREV = "r20230724_cpurdtparking_01020100_02000101"
 #SRCREV = "r20231610_cpurdtparking_01030002_02000400"
 #SRCREV = "r20231020_cpurdtparking_01030003_02000400"
-SRCREV = "r20231109_cpurdtparking_01030004_02000400"
-
+#SRCREV = "r20231109_cpurdtparking_01030004_02000400"
+#SRCREV = "r20231128_cpurdtparking_01030100_01000400"
+SRCREV = "r20231221_cpurdtparking_01030101_02000400"
 #SRC_URI = " \
 #	git:///home/xavier/CARTES_SIAT/RBOX/workspaceNewWeb;branch=newWeb;protocol=file \
 #	git:///home/xavier/CARTES_SIAT/RBOX/workspaceNewWeb/generation;protocol=file;branch=uncrustify;destsuffix=git/generation \
